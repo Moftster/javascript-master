@@ -23,7 +23,16 @@
 
 // const nae = "David";
 // const age = 22.5;
-const smarties = 20;
-const kids = 3;
-const response = `Each kid gets ${Math.ceil(smarties / kids)} smarties`;
-console.log(response);
+// const smarties = 20;
+// const kids = 3;
+// const response = `Each kid gets ${Math.ceil(smarties / kids)} smarties`;
+// console.log(response);]
+
+const name = "David";
+const age = 22.5;
+
+const person = {
+    first: 'david',
+    last: 'mof',
+    age: 100
+};
