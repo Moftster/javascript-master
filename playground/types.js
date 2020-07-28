@@ -31,11 +31,18 @@
 // const name = "David";
 // const age = 22.5;
 
-const person = {
-    first: 'david',
-    last: 'mof',
-    age: 100
-};
+// const person = {
+//     first: 'david',
+//     last: 'mof',
+//     age: 100
+// };
 
-let dog;
-console.log(dog);
+// let dog;
+// console.log(dog);
+
+let isDrawing = false;
+const age = 28;
+
+const ofAge = age > 19;
+
+console.log(age);
