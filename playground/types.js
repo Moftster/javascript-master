@@ -28,11 +28,14 @@
 // const response = `Each kid gets ${Math.ceil(smarties / kids)} smarties`;
 // console.log(response);]
 
-const name = "David";
-const age = 22.5;
+// const name = "David";
+// const age = 22.5;
 
 const person = {
     first: 'david',
     last: 'mof',
     age: 100
 };
+
+let dog;
+console.log(dog);
