@@ -10,18 +10,44 @@
 
 <body>
 <script>
-  function outer() {
-    const  outerVar = 'Hey, I am an outer var';
-    function inner() {
-      const innerVar = 'Hey I am an inner var';
-      console.log(innerVar);
-      console.log(outerVar);
+  // function outer() {
+  //   const  outerVar = 'Hey, I am an outer var';
+  //   function inner() {
+  //     const innerVar = 'Hey I am an inner var';
+  //     console.log(innerVar);
+  //     console.log(outerVar);
+  //   }
+  // return inner;
+  // }
+
+  // const innerFn = outer(); 
+  // innerFn();
+
+  // function createGreeting(greeting = '') {
+  //   const myGreet = greeting.toLocaleUpperCase();
+  //   return function(name) {
+  //     return `${myGreet} ${name}`;
+  //   }
+  // }
+
+  // const sayHello = createGreeting('hello');
+  // const sayHey = createGreeting('hey');
+  // const sayHi = createGreeting('hi');
+  // console.log(sayHello('Dave'));
+  // console.log(sayHey('John'));
+  // console.log(sayHi('Paul'));
+
+  function createGame(gameName) {
+    let score = 0;
+    return function win() {
+      score ++;
+      return `Your game ${gameName} score is ${score}`;
     }
-  return inner;
   }
 
-  const innerFn = outer(); 
-  innerFn();
+  const hockeyGame = createGame('Hockey');
+  const soccerGame = createGame('Soccer');
+
 
   
 </script>
