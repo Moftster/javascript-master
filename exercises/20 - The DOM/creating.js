@@ -30,33 +30,44 @@ heading.textContent = 'cool heading bro';
 
 myDiv.insertAdjacentElement('beforebegin', heading);
 
-const listItemOne = document.createElement('li');
-listItemOne.textContent = 'one';
+// const listItemOne = document.createElement('li');
+// listItemOne.textContent = 'one';
 
-const listItemTwo = document.createElement('li');
-listItemTwo.textContent = 'two';
+// const listItemTwo = document.createElement('li');
+// listItemTwo.textContent = 'two';
 
-const listItemThree = document.createElement('li');
-listItemThree.textContent = 'three';
+// const listItemThree = document.createElement('li');
+// listItemThree.textContent = 'three';
 
-const listItemFour = document.createElement('li');
-listItemFour.textContent = 'four';
+// const listItemFour = document.createElement('li');
+// listItemFour.textContent = 'four';
 
-const listItemFive = document.createElement('li');
-listItemFive.textContent = 'five';
+// const listItemFive = document.createElement('li');
+// listItemFive.textContent = 'five';
+
+// const unorderedList = document.createElement('ul');
+// const listItem = document.createElement('li');
+
+// const three = 'three';
+// // listItem.appendChild(listItemOne);
+
+// document.body.appendChild(unorderedList);
+
+// // document.body.appendChild(listItemOne);
+// // listItemOne.insertAdjacentElement('beforebegin', unorderedList);
+// unorderedList.insertAdjacentElement('afterbegin', listItemFive);
+// unorderedList.insertAdjacentElement('afterbegin', listItemFour);
+// unorderedList.insertAdjacentElement('afterbegin', listItemThree);
+// unorderedList.insertAdjacentElement('afterbegin', listItemTwo);
+// unorderedList.insertAdjacentElement('afterbegin', listItemOne);
 
 const unorderedList = document.createElement('ul');
 const listItem = document.createElement('li');
+listItem.textContent = 'three';
+unorderedList.appendChild(listItem);
 
-const three = 'three';
-// listItem.appendChild(listItemOne);
+const li2 = listItem.cloneNode(true);
+li2.textContent = 'two';
+unorderedList.insertAdjacentElement('afterbegin', li2);
 
-document.body.appendChild(unorderedList);
-
-// document.body.appendChild(listItemOne);
-// listItemOne.insertAdjacentElement('beforebegin', unorderedList);
-unorderedList.insertAdjacentElement('afterbegin', listItemFive);
-unorderedList.insertAdjacentElement('afterbegin', listItemFour);
-unorderedList.insertAdjacentElement('afterbegin', listItemThree);
-unorderedList.insertAdjacentElement('afterbegin', listItemTwo);
-unorderedList.insertAdjacentElement('afterbegin', listItemOne);
+document.body.insertAdjacentElement('afterbegin', unorderedList);
