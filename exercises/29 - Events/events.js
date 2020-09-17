@@ -20,19 +20,32 @@ buttons.removeEventListener('click', handleClick);
 
 const buyButtons = document.querySelectorAll('button.buy');
 
-// console.log(buyButtons);
+function handleBuyButtonClick(event) {
+    console.log('you clicked a button');
+    // const el = event.target;
+    // console.log(el.textContent);
+    // console.log(event.target.dataset.price);
+    console.log(event.currentTarget);
+    console.log(event.target);
+    console.log(event.target === event.currentTarget);
 
-function buyItem () {
-    console.log("iTEM BOUGHT.");
+    // Stop this event from bubbbling up
+    event.stopPropagation();
 };
 
-// console.log(buyButtons);
-// console.dir(buttons);
-// buyButtons.addEventListener('click', buyItem);
+buyButtons.forEach(function(buyButton) {
+    buyButton.addEventListener('click', handleBuyButtonClick);
+});
 
-function buyButtonClick (buyButton) {
-    console.log("Binding the buy button");
-    buyButton.addEventListener('click', buyItem);
-}
+window.addEventListener('click', function(event){
+    console.log("You click somewhere on the window");
+    console.log(event.target);
+}, { capture: true }
+);
 
-buyButtons.forEach(buyButtonClick);
+const photoEl = document.querySelector('.photo');
+
+photoEl.addEventListener('mouseenter', function(e) {
+    // console.log(e.currentTarget);
+    console.log(this);
+})
