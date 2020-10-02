@@ -9,10 +9,74 @@
 </head>
 
 <body>
+
+  <h2>Truthy Values</h2>
+  * 1
+  * -10
+  * full string
+  * a string of "0"
+
+  <h2>Falsy Values</h2>
+  * 0
+  * undefined variable
+  * Variable set to null
+  * a variable set to `"hello" - 10` NaN
+  * empty string
+
   <script>
-    if (10 > 2) {
-      console.log('Yep');
+    const age = 55;
+
+    if (age > 70) {
+      console.log('In seventies');
+    } else if(age > 60) {
+      console.log('In sixties');
+    } else if(age > 50) {
+      console.log('In fifties');
+    } else {
+      console.log('not applicable');
     }
+
+    function slugify(sentence, lowercase) {
+      let slug = sentence.replace(/\s/g, '-');
+      if(lowercase) {
+        return slug.toLowerCase();
+      } 
+        return slug;
+    }
+
+    const name = "wes";
+    const last = "johns";
+
+    if (name == "billy" || (name === 'dave' && last == 'johns')) {
+      console.log('great name');
+    }
+
+    const isAwesomeName = 'awesome'.includes(name);
+
+    if(isAwesomeName) {
+      console.log('cool, great name!!!');
+    }
+
+    function nameIsAwesome(name) {
+      return 'awesome'.includes(name);
+    }
+
+    const dog = "";
+
+    if (dog) {
+      console.log('you have a dog');
+    } else {
+      console.log('you do not have a dog');
+    }
+
+    let score = [1,2,3];
+
+    if(score) {
+      console.log('there is a score already');
+    } else {
+      console.log('no score yet');
+    }
+    
   </script>
 </body>
 
