@@ -11,6 +11,7 @@
 <body>
 
   <input type="text" name="first" value="David" >
+  <script src="https://unpkg.com/lodash@4.17.20/lodash.js"></script>
   <script>
 
     const age = 100;
@@ -47,16 +48,87 @@
 
     const name = nameInput ? nameInput.value : '';
 
-    console.log(name);
+    // console.log(name);
 
-    delete wesTheNob.job;
-    console.log(delete wesTheNob.job);
+    // delete wesTheNob.job;
+    // console.log(delete wesTheNob.job);
 
-    wesTheNob.age = null;
-    wesTheNob.age = undefined;
+    // wesTheNob.age = null;
+    // wesTheNob.age = undefined;
 
-    // Methods
+    let name1 = 'wes';
+    let name2 = 'wes';
 
+    console.log(name1 === name2);
+    name1 = "trevor";
+    console.log(name1 === name2);
+    name1 = name2;
+    console.log(name1 === name2);
+    name2 = name1;
+    console.log(name1 === name2);
+    name2 = 'westopher';
+
+    const person1 = {
+      first: 'dave',
+      last: 'mofty',
+      clothing: {
+        shirts: 10,
+        pants: 2,
+      },
+    }
+    const person2 = {
+      first: 'dave',
+      last: 'mofty',
+    }
+
+    // const person3 = person1;
+    // person3.first = 'Larry';
+    // console.log(person3.first);
+    // console.log(person1.first);
+
+    // const person3 = {... person1};
+    const person3 = _.cloneDeep(person1);
+    // const person3 = Object.assign({}, person1); // alternative way to do spread (above )
+    person3.last = 'Larry';
+    person3.clothing.shirts = 100;
+
+    // console.log(person1);
+    // console.log(person3);
+
+    const meatInventory = {
+      bacon: 2,
+      sausage: 3,
+      oyster: 10,
+    };
+
+    const veggieInventory = {
+      lettuce: 5,
+      tomatoes: 3,
+      oyster: 15,
+    };
+
+    const inventory = {
+      ...meatInventory, 
+      ...veggieInventory,
+      bacon: 10,
+      };
+
+    function doStuff(data) {
+      data = "something else";
+      console.log(data);
+    }
+
+    function doStuff2(data) {
+      data.tomatoes = 100000;
+      console.log(data);
+    }
+
+    doStuff(name1);
+    
+    doStuff2(inventory);
+
+    // console.log(name1);
+ 
   </script>
 </body>
 
