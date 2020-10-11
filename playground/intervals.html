@@ -10,6 +10,58 @@
 
 <body>
 
+  <script>
+
+    function buzzer() {
+      console.log('neeer!');
+    }
+
+    // console.log('starting');
+
+    // setTimeout(buzzer, 500);
+
+    // console.log('finishing');
+
+
+    // function setImmediateInterval(funcToRun, ms) {
+    //   //call function to run straight away
+    //   funcToRun();
+    //   //run a regular interval
+    //   return setInterval(funcToRun, ms);
+    // }
+
+    // setImmediateInterval(buzzer, 2000);
+
+    // function sayHi() {
+    //   console.log('Say Hi');
+    // }
+
+    // setImmediateInterval(sayHi, 1000);
+
+    function destroy() {
+      document.body.innerHTML = `<p>Destroyed</p>`;
+    }
+
+    const bombTimer = setTimeout(destroy, 5000);
+
+    console.log(bombTimer);
+
+    window.addEventListener('click', function() {
+      console.log('you saved the world');
+      //stop timeout from running
+      clearTimeout(bombTimer); // stop timer from running
+    })
+
+    const wesNob = setInterval(function(){
+      console.log('again');
+      console.log('wes bos a nob');
+    }, 100);
+
+    setTimeout(function(){
+      clearInterval(wesNob);
+    }, 5000);
+
+  </script>
 </body>
 
 </html>
