@@ -9,7 +9,53 @@
 </head>
 
 <body>
+
+  <input type="text" name="first" value="David" >
   <script>
+
+    const age = 100;
+    const wesTheNob = {
+      age,
+      name: 'dave',
+      'cool-dude': true,
+      propertyToCheck: 'NEVER',
+      'really cool': false,
+      '777': true,
+      dog: 'snikers',
+      clothing: {
+        shirts: 10,
+        pants: 3,
+      },
+      sayHello (greeting = 'Hey') {
+        return `${greeting} ${this.name}`
+      },
+      sneeze () {
+        console.log('ahchew', this);
+      }
+    };
+
+    wesTheNob.job = 'web developer';
+    wesTheNob.age = 50;
+
+    // const propertyToCheck = prompt('What do you want to check?');
+
+    // console.log(propertyToCheck);
+
+    // console.log(wesTheNob[propertyToCheck]);
+
+    const nameInput = document.querySelector('[name="first"]');
+
+    const name = nameInput ? nameInput.value : '';
+
+    console.log(name);
+
+    delete wesTheNob.job;
+    console.log(delete wesTheNob.job);
+
+    wesTheNob.age = null;
+    wesTheNob.age = undefined;
+
+    // Methods
 
   </script>
 </body>
