@@ -13,6 +13,96 @@
 <body>
 <script>
   const names = ['wes', 'dave', 'snickers'];
+  console.log(names[1]);
+  console.log(names.length);
+  console.log(names[names.length - 1]);
+
+  names.push('lix');
+  console.log(names);
+  const names2 = [...names, 'lux'];
+
+  names.unshift('poppy');
+  console.log(names);
+
+  const names3 = ['terry', ...names];
+  console.log(names3);
+  console.log(names);
+
+  const bikes = ['pedolo', 'raleigh', 'test', 'whyte'];
+
+  // insert item into array
+  const newBikes = [
+    ...bikes.slice(0,2),
+    'bennoto',
+    ...bikes.slice(2)
+  ];
+
+  console.log(newBikes);
+
+  const newBikes2 = [
+    ...newBikes.slice(0,3),
+    ...newBikes.slice(4)
+  ]
+
+  console.log(newBikes2);
+
+  //
+  const comments = [
+    {text: 'cool beans', id: 123},
+    {text: 'is good', id: 133},
+    {text: 'cool but could be better', id: 223},
+    {text: 'fart beans', id: 563},
+    {text: 'utter crap', id: 23},
+    {text: 'cool beans mk 2', id: 37},
+  ];
+
+  function deleteComment(id, comments) {
+    //first find index of item in array
+    const commentIndex = comments.findIndex(comment => comment.id === id);
+    //make new array without that item
+    return [
+      ...comments.slice(0, commentIndex),
+      ...comments.slice(commentIndex + 1),
+    ]
+    //return out new array
+  }
+
+  const wesIndex = names.findIndex(name => name === 'snickers');
+  const newNamesWithoutSnickers = [
+    //get everything up to snickers
+    names.slice(0, wesIndex),
+    //everything after snickers index
+    names.slice(wesIndex + 1),
+  ].flat();
+
+
+  console.log(newNamesWithoutSnickers);
+  // console.log(wesIndex);
+  // console.log(names[wesIndex]);
+
+
+  // //mutation method
+  // const numbers = [1,2,3,4,5,6,7]; 
+  // console.log(numbers);
+  // numbers.splice(3,2);
+  // console.log(numbers);
+
+
+  // // use mutation method and not use original array - take a copy of the array
+  // const numbersReverse = [...numbers];
+  // numbersReverse.reverse();
+  // console.log(numbersReverse);
+  // console.log(numbers);
+
+  // // const numbersBackwards = numbers.reverse();
+  // // console.log(numbersBackwards);
+  // // console.log(numbers);
+
+  // //immutable
+  // const pizzaSlice = numbers.slice(2,4);
+  // console.log(pizzaSlice);
+  // console.log(numbers);
+
 </script>
 </body>
 
