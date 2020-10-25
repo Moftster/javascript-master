@@ -15,12 +15,12 @@
     const toppings = ['Mushrooms ', 'Tomatoes', 'Eggs', 'Chili', 'Lettuce', 'Avocado', 'Chiles', 'Bacon', 'Pickles', 'Onions', 'Cheese'];
 
     const buns = ['egg', 'wonder', 'brioche'];
-
     const meats = {
       beyond: 10,
       beef: 5,
       pork: 7
     };
+
 
     const prices = {
       hotDog: 453,
@@ -31,13 +31,7 @@
 
     const orderTotals = [342, 1002, 523, 34, 634, 854, 1644, 2222];
 
-    const feedback = [
-      { comment: 'Love the burgs', rating: 4 },
-      { comment: 'Horrible Service', rating: 2 },
-      { comment: 'Smoothies are great, liked the burger too', rating: 5 },
-      { comment: 'Ambiance needs work', rating: 3 },
-      { comment: 'I DONT LIKE BURGERS', rating: 1 },
-    ];
+
 
 
     /*
@@ -62,9 +56,9 @@
     console.log(Array.isArray(myRange));
 
     // Take the meats object and make three arrays with Object.entries(), Object.keys, Object.values()
-    console.log(Object.entries(meats));
-    console.log(Object.keys(meats));
-    console.log(Object.values(meats));
+    // console.log(Object.entries(meats));
+    // console.log(Object.keys(meats));
+    // console.log(Object.values(meats));
 
     Object.values(meats).forEach(qty => {
       console.log(qty);
@@ -167,23 +161,89 @@
     console.clear();
 
     // find the first rating that talks about a burger with find()
-    function searchinAnObject(searchItem, myArray){
-        for (var i=0; i < myArray.length; i++) {
-          // console.log('array iterating');
-            if (myArray[i].comment === searchItem) {
-                return myArray.rating;
-            }
-        }
+    // function searchinAnObject(searchItem, myArray){
+    //     for (var i=0; i < myArray.length; i++) {
+    //       // console.log('array iterating');
+    //         if (myArray[i].comment === searchItem) {
+    //             return myArray.rating;
+    //         }
+    //     }
+    // }
+    // console.log(searchinAnObject('Love the burgs', feedback));
+
+    // const util = {
+    //   findBurgRating: function (singleFeedback) {
+    //     return singleFeedback.comment.includes('burg');
+    //   }
+    // }
+
+    const feedback = [
+      { comment: 'Love the burgs', rating: 4 },
+      { comment: 'Horrible Service', rating: 2 },
+      { comment: 'Smoothies are great, liked the burger too', rating: 5 },
+      { comment: 'Ambiance needs work', rating: 3 },
+      { comment: 'I DONT LIKE BURGERS', rating: 1 },
+    ];
+
+    // const findBurgRating = (singleFeedback) => singleFeedback.comment.includes('burg');
+
+    function findByWord(word) {
+      return function (singleFeedback) {
+        return singleFeedback.comment.includes(word);
+      }
     }
-    console.log(searchinAnObject('Love the burgs', feedback));
+
+    // const burgRating = feedback.find(findBurgRating);
+
+    const burgRating = feedback.find(findByWord('burg'));
+
+    const smoothieRating = feedback.find(findByWord('Smoothie'));
+
+    // console.log(burgRating);
+    // console.log(smoothieRating);
 
     // find all ratings that are above 2 with filter()
+    // const goodReviews = feedback.rating.filter(2);
+    // function goodReviews (singleReview, rating) {
+    //   singleReview.rating.filter(rating);
+    // };
+
+    function filterByMinRating(minRating) {
+      return function(singleFeedback) {
+        return singleFeedback.rating > minRating;
+      }
+    }
+    const goodReviews = feedback.filter(filterByMinRating(4));
+
+      // const goodReviews = feedback.filter(singleFeedback => singleFeedback.rating >= 2 );
+
+      // console.table(goodReviews);
+
     // find all ratings that talk about a burger with filter()
+
+    // const burgRatings = feedback.filter(singleFeedback => singleFeedback.comment.includes('burg'));
+    // console.table(burgRatings);
+    const burgRatings = feedback.filter(findByWord('burg'));
+    console.table(burgRatings);
+
     // Remove the one star rating however you like!
+    const removeOneStar = feedback.filter((single) => single.rating !== 1);
+
+    console.table(removeOneStar);
 
     // check if there is at least 5 of one type of meat with some()
+
+    const moreThanFiveMeats = Object.values(meats).some(meatValue => meatValue >= 5);
+    // console.log(moreThanFiveMeats);
+
     // make sure we have at least 3 of every meat with every()
+    const threeOfEveryMeat = Object.values(meats).every(meatValue => meatValue > 3);
+    console.log(threeOfEveryMeat);
+
     // sort the toppings alphabetically with sort()
+
+    const sortedToppings = toppings.sort();
+    console.log(sortedToppings);
     // sort the order totals from most expensive to least with .sort()
     // Sort the prices with sort()
 
