@@ -244,14 +244,54 @@
 
     const sortedToppings = toppings.sort();
     console.log(sortedToppings);
+
+    const numbers = [1, 2, 200, 33];
+    // console.log(numbers);
+    console.log(numbers.sort());
+    console.clear();
+
+
+    // const numbersSorted = numbers.sort(function(firstItem, secondItem){
+    //   if(firstItem > secondItem) {
+    //     return 1;
+    //   } else if (secondItem > firstItem) {
+    //      return -1;
+    //   } else {
+    //     return 0;
+    //   }
+    // }); 
+
+    // const numbersSorted = numbers.sort(function(first, second) {
+    //   return first - second;
+    // })
+
+    const numbersSorted = numbers.sort((f, s) => f - s);
+
+    console.log(numbersSorted);
     // sort the order totals from most expensive to least with .sort()
+
+    const sortedOrderTotals = orderTotals.sort((first, second) => first - second);
+
+    console.log(sortedOrderTotals);
     // Sort the prices with sort()
+
+    // const justPrices = Object.values(prices).sort((a,b) => a - b);
+
+    // console.log(justPrices);
+
+    const productsSortedByPrice = Object.entries(prices).sort(function(a, b ){
+      const aPrice = a[1];
+      const bPrice = b[1];
+      return aPrice - bPrice; 
+      // debugger;
+    });
+    console.table(productsSortedByPrice);
 
     /*
       Looping Methods (next)
     */
 
-  </script>
+  console.log();</script>
 </body>
 
 </html>
