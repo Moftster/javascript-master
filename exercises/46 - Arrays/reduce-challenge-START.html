@@ -9,9 +9,229 @@
 </head>
 
 <body>
+<div id="the-text" class="github-grab">
+  Skip to content
+  Search or jump to…
+  
+  Pull requests
+  Issues
+  Marketplace
+  Explore
+   
+  @Moftster 
+  Moftster
+  /
+  javascript-master
+  1
+  00
+  Code
+  Issues
+  Pull requests
+  1
+  Actions
+  Projects
+  Wiki
+  Security
+  3
+  Insights
+  Settings
+  We found potential security vulnerabilities in your dependencies.
+  Only the owner of this repository can see this message.
+  
+   2 branches
+   0 tags
+  Latest commit
+  DavidMoftakhar
+  DavidMoftakhar Looping and iteration - reduce.
+  ad87b46
+  3 minutes ago
+  Git stats
+   50 commits
+  Files
+  Type
+  Name
+  Latest commit message
+  Commit time
+  .idea
+  Ignore PhpStorm files and initial work on js file.
+  4 months ago
+  exercises
+  Looping and iteration - reduce.
+  3 minutes ago
+  playground
+  Arrays.
+  14 days ago
+  snippets
+  Initial commit
+  4 months ago
+  ._.eslintrc-FINISHED
+  Initial commit
+  4 months ago
+  ._.gitignore
+  Initial commit
+  4 months ago
+  ._base.css
+  Initial commit
+  4 months ago
+  ._exercises
+  Initial commit
+  4 months ago
+  ._function-definition.jpg
+  Initial commit
+  4 months ago
+  ._package-lock.json
+  Initial commit
+  4 months ago
+  ._package.json
+  Initial commit
+  4 months ago
+  ._playground
+  Initial commit
+  4 months ago
+  ._readme.md
+  Initial commit
+  4 months ago
+  ._snippets
+  Initial commit
+  4 months ago
+  .eslintrc-FINISHED
+  Initial commit
+  4 months ago
+  .eslintrc.js
+  Remove no-console warning.
+  4 months ago
+  .gitignore
+  Initial commit
+  4 months ago
+  base.css
+  Initial commit
+  4 months ago
+  function-definition.jpg
+  Initial commit
+  4 months ago
+  package-lock.json
+  ES lint setup.
+  4 months ago
+  package.json
+  ES lint setup.
+  4 months ago
+  readme.md
+  Initial commit
+  4 months ago
+  readme.md
+  
+  
+  Beginner JavaScript
+  These are the starter files and solutions to the Beginner JavaScript course
+  
+  Function Definition Diagram
+  
+  
+  Community Resources
+  Please feel free to add your blog post, videos, notes, or anything else related to the course :)
+  
+  Soumya Ranjan Mohanty's Github repo with notes and lessons learnt, along with full notes here.
+  About
+  Wes Bos JavaScript tutorial.
+  
+  Topics
+  Resources
+   Readme
+  Releases
+  No releases published
+  Create a new release
+  Packages
+  No packages published
+  Publish your first package
+  Languages
+  HTML
+  58.5%
+   
+  JavaScript
+  36.1%
+   
+  CSS
+  5.1%
+   
+  SCSS
+  0.3%
+  © 2020 GitHub, Inc.
+  Terms
+  Privacy
+  Security
+  Status
+  Help
+  Contact GitHub
+  Pricing
+  API
+  Training
+  Blog
+  About
+  We use optional third-party analytics cookies to understand how you use GitHub.com so we can build better products. .
+  
+</div>
+      
+
   <script>
     // Grab all the text from a web page
-    // Count how many times each letter and number occurs
+    const textToBeAnalysed = document.getElementById('the-text');
+    textContent = textToBeAnalysed.textContent;
+    // console.log(textContent);
+
+    // // Count how many times each letter and number occurs
+    // //convert text into an array of letter
+    // const textToArray = textContent.split('');
+    // console.log(textToArray);
+    
+    // //filter for letters and numbers
+    // const onlyLettersAndNumbers = textToArray.filter(letter => /[a-zA-Z0-9]/.test(letter));
+    // console.log(onlyLettersAndNumbers);
+
+    // //map so all letters are the same case
+    // const toLowerCase = onlyLettersAndNumbers.map(item => item.toLowerCase());
+    // console.log(toLowerCase);
+
+    // function letterCounter(letter, text) {
+    //   console.log(`Looping over ${letter}`);
+    //   letter[text.type] = letter[text.type] + 1 || 1;
+    //   return letter;
+    // }
+
+    // const wordCount = toLowerCase.reduce((acc, item) => acc + item.price, 0);
+    // console.log(wordCount);
+
+    // const totalInventoryPrice = inventory.reduce((acc, item) => acc + item.price, 0);
+    // console.log(totalInventoryPrice);
+
+    function isValidCharacter(char) {
+      return char.match(/[a-zA-Z0-9]/);
+    }
+
+    function toLowerCase(char) {
+      return char.toLowerCase();
+    }
+
+    function instanceCounter(count, char) {
+      count[char] ? count[char]  = count[char] + 1 : count[char] = 1;
+      return count;
+    }
+
+    filtered = textContent
+                .split('')
+                .filter(isValidCharacter)
+                .map(toLowerCase)
+                .reduce(instanceCounter, {});
+
+    function sortByValue(a, b) {
+      return a[1] - b[1];
+    }
+
+    const sortedResult = Object
+                        .entries(filtered)
+                        .sort(sortByValue);
+
+    console.log(sortedResult);
+    
 
 
   </script>
