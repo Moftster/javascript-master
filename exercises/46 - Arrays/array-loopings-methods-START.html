@@ -101,8 +101,9 @@
       sausage: 634,
       corn: 234,
     };
-
+    
     const orderTotals = [342, 1002, 523, 34, 634, 854, 1644, 2222];
+
 
     const feedback = [
       { comment: 'Love the burgs', rating: 4 },
@@ -211,6 +212,49 @@
     console.clear();
 
     //Reduce 
+
+
+    // let total = 0;
+    // orderTotals.forEach(singleTotal => {
+    //   total = total + singleTotal;
+    // })
+    // console.log(total);
+
+    function tallyNumbers(tally, currentTotal) {
+      console.log(`The current tally is ${tally}`);
+      console.log(`The current total is ${currentTotal}`);
+      console.log(`--------------`);
+      //return current tally PLUS the amount of this order
+      return tally + currentTotal;
+    }
+
+    allOrders = orderTotals.reduce(tallyNumbers, 0);
+
+    console.log(allOrders);
+
+    console.clear();
+
+    function inventoryReducer(totals, item) {
+      console.log(`Looping over ${item.type}`);
+      //incerment the type by 1 
+      totals[item.type] = totals[item.type] + 1 || 1;
+      // totals.shirt ? totals.shirt + 1 : totals.shirt = 1;
+      // if(totals.shirt) {
+      //   totals.shirt = totals.shirt + 1;
+      //   totals.shirt++;
+      // } else {
+      //   totals.shirt = 1;
+      // }
+      //return the totals so the next loop can use it
+      return totals;
+    }
+
+    const inventoryCounts = inventory.reduce(inventoryReducer, {});
+    console.log(inventoryCounts);
+
+    const totalInventoryPrice = inventory.reduce((acc, item) => acc + item.price, 0);
+    console.log(totalInventoryPrice);
+
 
   </script>
 </body>
