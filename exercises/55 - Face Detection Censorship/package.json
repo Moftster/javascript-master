@@ -1,7 +1,6 @@
 {
   "name": "pixelated-face",
   "version": "1.0.0",
-  "description": "",
   "main": "pixelated-face.js",
   "scripts": {
     "start": "parcel face.html"
@@ -13,5 +12,8 @@
   ],
   "dependencies": {
     "parcel": "^2.0.0-alpha.2.1"
-  }
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "description": ""
 }
