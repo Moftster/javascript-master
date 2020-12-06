@@ -32,6 +32,43 @@
       });
     }
 
+    function handleError(err){
+      console.log('not working');
+      console.log(err);
+    }
+
+
+    async function go(){
+        const pizza = await makePizza(['pineapple']);
+        console.log(pizza);
+        return pizza;
+    }
+
+    //catch error at run time
+    // go().catch(handleError);
+
+    //make a safe function with higher order function
+    function makeSafe (fn, errorHandler){
+      return function() {
+        fn().catch(errorHandler);
+      }
+    }
+
+    const safeGo = makeSafe(go, handleError); 
+
+    safeGo();
+
+
+    // go().then(result => {
+    //   console.log(result);
+    // }).catch(handleError);
+
+    // async function goGo(){
+    //   const result = await go();
+    // }
+
+    // goGo().catch(handleError);
+
   </script>
 </body>
 
