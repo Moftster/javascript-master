@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Event Loop</title>
+  <link rel="stylesheet" href="../base.css">
+</head>
+
+<body>
+  <style>
+    .go {
+      margin: 4rem;
+      background: white;
+      padding: 15rem;
+      width: 25rem;
+      height: 25rem;
+      transition: all 0.3s;
+    }
+
+    .go.circle {
+      border-radius: 50%;
+    }
+
+    .go.red{
+      background: red;
+    }
+    
+    .go.purple{
+      background: purple;
+      color: white;
+    }
+
+    .go.fadeout{
+      opacity: 0; 
+    }
+
+
+  </style>
+  <div class="go">Click me</div>
+  <script>
+    const wait = (ms = 0) => new Promise(resolve => setTimeout(resolve, ms));
+
+    wait(3000).then(() => {
+      console.log('done');
+    })
+    // console.log('starting');
+    // setTimeout(function(){
+    //   console.log('running');
+    // }, 0)
+    // console.log('ending');
+
+
+    const go = document.querySelector('.go');
+
+    function animate(e) {
+      const el = e.currentTarget;
+      el.textContent = 'GO';
+      wait(200).then(() => {
+        el.classList.add('circle');
+        return wait(400)
+      }).then(() => {
+        el.classList.add('red');
+        return wait(250);
+      }).then(() => {
+        el.classList.remove('circle');
+        return wait(500);
+      }).then(() => {
+        el.classList.remove('red');
+        el.classList.add('purple');
+        return wait(500);
+      }).then(() => {
+        el.classList.add('fadeout');
+        return wait(500);
+      });
+    }
+
+    go.addEventListener('click', animate);
+
+    go.addEventListener('clickxxx', function(e){
+      const el = e.currentTarget;
+      console.log(el);
+      el.textContent = "Go!";
+      setTimeout(function(){
+        el.classList.add('circle');
+      }, 200);
+      setTimeout(function(){
+        el.classList.add('red');
+        setTimeout(function(){
+          el.classList.remove('circle');
+          setTimeout(function(){
+            el.classList.remove('red');
+            el.classList.add('purple');
+            setTimeout(function(){
+              el.classList.add('fadeout')
+            }, 500);
+          }, 300)
+        }, 250);
+      }, 500);
+     });
+  </script>
+</body>
+
+</html>
